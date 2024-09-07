@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader } from '@/shared/components/ui'
 import { Question, EntityWithComments } from '@/shared/types'
 import UserShortInfo from '../../features/userShortInfo'
 import CommentField from '../../features/commentField'
+import { compactize, convertDateToString } from '@/shared/utils'
 
 export type TQuestionContentProps = EntityWithComments<Question>
 export const QuestionContent = ({
@@ -19,8 +20,8 @@ export const QuestionContent = ({
         <p className="text-2xl">{title}</p>
         <div className="flex gap-10">
           {[
-            ['Views:', view_count],
-            ['Created:', creation_date],
+            ['Views:', compactize(view_count)],
+            ['Created:', convertDateToString(creation_date)],
             ['Score:', score],
           ].map(([text, data]) => (
             <p key={text} className="font-bold text-sm">
@@ -30,9 +31,11 @@ export const QuestionContent = ({
           ))}
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col gap-36 divide-y">
-        <div className="flex flex-col gap-5" dangerouslySetInnerHTML={{ __html: body }} />
-        <UserShortInfo {...owner} />
+      <CardContent className="flex flex-col gap-20 divide-y">
+        <div className="flex flex-col gap-5 overflow-x-scroll" dangerouslySetInnerHTML={{ __html: body }} />
+        <div>
+          <UserShortInfo {...owner} />
+        </div>
         {comments.map(comment => (
           <CommentField key={comment.comment_id} {...comment} />
         ))}

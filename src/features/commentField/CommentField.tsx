@@ -6,7 +6,7 @@ export const CommentField = ({ body, creation_date, score, owner }: TCommentFiel
   return (
     <div className="grid gap-5 align-top grid-cols-fit-auto">
       <p>{score}</p>
-      <div>
+      <div className="max-w-full overflow-x-scroll">
         <div dangerouslySetInnerHTML={{ __html: body }} />
         <p className="text-blue-400 text-sm font-light">
           {owner.display_name} on

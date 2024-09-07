@@ -5,7 +5,7 @@ import { fetchAnswerCommentsByAnswerId } from '../comment/api'
 type TFetchPostAnswersByQuestionId = (id: number) => Promise<Answer[]>
 export const fetchPostAnswersByQuestionId: TFetchPostAnswersByQuestionId = async questionId => {
   const data: ApiResponse<Answer> = await fetch(
-    `${BASE_URL}/questions/${questionId}/answers?order=desc&sort=activity&site=stackoverflow&filter=withbody`
+    `${BASE_URL}/questions/${questionId}/answers?order=desc&sort=votes&site=stackoverflow&filter=withbody`
   ).then(res => res.json())
 
   return data.items

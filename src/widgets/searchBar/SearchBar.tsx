@@ -28,7 +28,7 @@ export const SearchBar = () => {
   return (
     <div className="flex flex-col gap-10 items-center m-auto">
       <SearchInput value={inputVal} setValue={setInputVal} handleInput={debouncedHandleInput} />
-      <div className="grid md:grid-cols-4 gap-4 grid-flow-cols md:max-w-[80%]">
+      <div className="w-[80vw] grid lg:grid-cols-3 gap-4 grid-flow-cols md:w-[80%]">
         {isPending && new Array(3).map(() => <QuestionCardSkeleton />)}
         {!isPending &&
           questions &&

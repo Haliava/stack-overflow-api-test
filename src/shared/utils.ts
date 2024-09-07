@@ -18,5 +18,5 @@ export const compactize: TCompactize = n => {
 
 export type TConvertDateToString = (date: number) => string
 export const convertDateToString: TConvertDateToString = date => {
-  return new Date(date * 1000).toISOString().slice(0, 10).replace(/-/g, '')
+  return new Date(date * 1000).toDateString()
 }

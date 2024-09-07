@@ -11,7 +11,7 @@ export const QuestionCard = ({ title, view_count, is_answered, owner, question_i
   return (
     <Card
       onClick={() => navigate(`/question/${question_id}`)}
-      className="grid grid-flow-row-dense m-auto md:min-w-[200px] md:w-full cursor-pointer hover:scale-105 hover:shadow-lg"
+      className="grid grid-flow-row m-auto md:min-w-[200px] w-full cursor-pointer hover:scale-105 hover:shadow-lg"
     >
       <CardHeader className="h-[200px]">
         <h3 className="text-lg line-clamp-5 text-ellipsis whitespace-break-spaces md:line-clamp-4">

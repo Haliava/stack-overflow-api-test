@@ -9,14 +9,16 @@ export const AnswerCard = ({ body, owner, score, creation_date, comments, is_acc
   return (
     <Card className="divide-y">
       <CardHeader className="flex gap-10">
-        <h3 className={`${is_accepted ? 'bg-green-400' : 'bg-gray-400'}`}>{score}</h3>
+        <h3 className={`text-lg font-bold text-center rounded-sm ${is_accepted ? 'bg-green-200' : 'bg-gray-200'}`}>
+          This answer has a score of {score}
+        </h3>
         <div
           className="flex flex-col overflow-x-scroll gap-5 [&_pre]:decoration-sky-400"
           dangerouslySetInnerHTML={{ __html: body }}
         />
       </CardHeader>
       <CardContent className="flex flex-col gap-10 mr-0 ml-auto">
-        <p className="text-sm text-gray-400">answered on {convertDateToString(creation_date * 1000)}</p>
+        <p className="text-sm text-gray-400">answered on {convertDateToString(creation_date)}</p>
         <div className="">
           <UserShortInfo {...owner} />
         </div>
