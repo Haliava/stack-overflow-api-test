@@ -40,7 +40,9 @@ export const QuestionPage = () => {
     <div className="w-full md:w-[80%] max-w-[700px] m-auto pt-20">
       <Suspense fallback={<QuestionCardSkeleton />}>
         <QuestionContent {...questionDetails} />
-        <h2 className="text-2xl mt-10 mb-10 uppercase font-extrabold text-center">{questionDetails?.answer_count} Answers</h2>
+        <h2 className="text-2xl mt-10 mb-10 uppercase font-extrabold text-center">
+          {questionDetails?.answer_count} Answers
+        </h2>
         <div className="flex flex-col gap-10">
           {answers && answers.length > 0 && answers.map(answer => <AnswerCard {...answer} />)}
         </div>
