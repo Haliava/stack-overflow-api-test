@@ -1,7 +1,7 @@
 export type Date = number
 export type Entity = Question | Answer | Comment
 export interface ApiResponse<T extends Entity> {
-  items: T[] 
+  items: T[]
 }
 
 export interface Question {

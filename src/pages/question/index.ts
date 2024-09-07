@@ -1,3 +1,3 @@
-import { QuestionPage } from "./QuestionPage";
+import { QuestionPage } from './QuestionPage'
 
-export default QuestionPage;
+export default QuestionPage

@@ -1,3 +1,3 @@
-import { CommentField } from "./CommentField";
+import { CommentField } from './CommentField'
 
-export default CommentField;
+export default CommentField

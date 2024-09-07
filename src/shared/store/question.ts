@@ -1,8 +1,8 @@
-import { makeAutoObservable } from "mobx";
-import { Question as TQuestion } from "../types";
+import { makeAutoObservable } from 'mobx'
+import { Question as TQuestion } from '../types'
 
 class Question {
-  posts: TQuestion[] = [];
+  posts: TQuestion[] = []
 
   constructor() {
     makeAutoObservable(this) // , {} <-- За чем следить, {deep: true}
@@ -21,4 +21,4 @@ class Question {
   // }
 }
 
-export default new Question();
+export default new Question()

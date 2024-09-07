@@ -1,3 +1,3 @@
-import { QuestionCard } from "./QuestionCard";
+import { QuestionCard } from './QuestionCard'
 
-export default QuestionCard;
+export default QuestionCard

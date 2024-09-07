@@ -1,4 +1,4 @@
-import SearchBar from "@/widgets/searchBar";
+import SearchBar from '@/widgets/searchBar'
 
 export const IndexPage = () => {
   return (
@@ -6,4 +6,4 @@ export const IndexPage = () => {
       <SearchBar />
     </div>
   )
-};
+}

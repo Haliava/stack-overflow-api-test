@@ -1,3 +1,3 @@
-import { QuestionCardSkeleton } from "./QuestionCardSkeleton";
+import { QuestionCardSkeleton } from './QuestionCardSkeleton'
 
-export default QuestionCardSkeleton;
+export default QuestionCardSkeleton

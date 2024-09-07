@@ -1,3 +1,3 @@
-import { UserShortInfo } from "./UserShortInfo";
+import { UserShortInfo } from './UserShortInfo'
 
-export default UserShortInfo;
+export default UserShortInfo
