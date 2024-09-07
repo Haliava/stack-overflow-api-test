@@ -8,3 +8,4 @@ Stack Overflow Api Test
 1) skeleton
 2) breadcrumbs
 3) lazy и pagination в поиске и ответах
+4) кешировать запросы
