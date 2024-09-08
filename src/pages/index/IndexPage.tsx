@@ -2,7 +2,7 @@ import SearchBar from '@/widgets/searchBar'
 
 export const IndexPage = () => {
   return (
-    <div className="grid justify-center pt-20">
+    <div className="grid justify-center pt-20 pb-20">
       <SearchBar />
     </div>
   )
