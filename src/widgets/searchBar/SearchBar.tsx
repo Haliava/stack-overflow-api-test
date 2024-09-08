@@ -11,14 +11,14 @@ export const SearchBar = () => {
   const [inputVal, setInputVal] = useState('')
 
   const {
-    // @ts-expect-error
-    isPending,
+    isFetching,
     data: questions,
     refetch,
   } = useQuery({
     queryKey: ['questions'],
     queryFn: () => fetchQuestionsByQuery(inputVal),
     refetchOnWindowFocus: false,
+    enabled: false,
   })
   const handleInput: React.FormEventHandler<HTMLInputElement> = () => {
     refetch()
@@ -28,13 +28,16 @@ export const SearchBar = () => {
   return (
     <div className="flex flex-col gap-10 items-center m-auto">
       <SearchInput value={inputVal} setValue={setInputVal} handleInput={debouncedHandleInput} />
-      <div className="w-[80vw] grid lg:grid-cols-3 gap-4 grid-flow-cols md:w-[80%]">
-        {isPending && new Array(3).map(() => <QuestionCardSkeleton />)}
-        {!isPending &&
+      <div className="w-[80vw] grid lg:grid-cols-3 gap-4 grid-flow-cols">
+        {isFetching && Array.from({ length: 3 }, (_, i) => i).map((_, i) => <QuestionCardSkeleton key={i} />)}
+        {!isFetching &&
           questions &&
           questions.length > 0 &&
           questions.map(questionProps => <QuestionCard key={questionProps.creation_date} {...questionProps} />)}
       </div>
+      {!isFetching && (!questions || questions.length <= 0) && (
+        <h1 className="text-2xl font-extrabold m-auto">No answers</h1>
+      )}
     </div>
   )
 }

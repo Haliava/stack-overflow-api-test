@@ -17,7 +17,7 @@ export const QuestionContent = ({
   return (
     <Card>
       <CardHeader className="flex flex-col gap-20">
-        <p className="text-2xl">{title}</p>
+        <p className="text-xl font-sans font-extrabold" dangerouslySetInnerHTML={{ __html: title }} />
         <div className="flex gap-10">
           {[
             ['Views:', compactize(view_count)],

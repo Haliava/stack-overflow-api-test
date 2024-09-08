@@ -30,14 +30,14 @@ export const QuestionPage = () => {
 
   if (isAnswersLoading || isQuestionDetailsLoading || !questionDetails) {
     return (
-      <div>
+      <div className="w-[95vmin] md:w-[80%] max-w-[700px] m-auto pt-20">
         <QuestionCardSkeleton />
       </div>
     )
   }
 
   return (
-    <div className="w-full md:w-[80%] max-w-[700px] m-auto pt-20">
+    <div className="w-[95vmin] md:w-[80%] max-w-[700px] m-auto pt-20">
       <Suspense fallback={<QuestionCardSkeleton />}>
         <QuestionContent {...questionDetails} />
         <h2 className="text-2xl mt-10 mb-10 uppercase font-extrabold text-center">
