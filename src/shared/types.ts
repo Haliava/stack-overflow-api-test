@@ -1,7 +1,9 @@
 export type Date = number
+export type TSortBy = 'activity' | 'votes'
 export type Entity = Question | Answer | Comment
 export interface ApiResponse<T extends Entity> {
   items: T[]
+  has_more: boolean
 }
 
 export interface Question {

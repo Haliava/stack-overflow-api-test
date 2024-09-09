@@ -1,18 +1,18 @@
-import { ApiResponse, EntityWithComments, Question } from '@/shared/types'
-import { BASE_URL } from '@/shared/consts'
+import { ApiResponse, EntityWithComments, Question, TSortBy } from '@/shared/types'
+import { BASE_URL, PAGE_SIZE } from '@/shared/consts'
 import { fetchPostCommentsByQuestionId } from '../comment/api'
 
-type TFetchQuestionsByQuery = (query: string) => Promise<Question[]>
-export const fetchQuestionsByQuery: TFetchQuestionsByQuery = async query => {
+type TFetchQuestionsByQuery = (query: string, sortBy: TSortBy, page: number) => Promise<[Question[], boolean]>
+export const fetchQuestionsByQuery: TFetchQuestionsByQuery = async (query, sortBy, page) => {
   if (query.length <= 0) {
-    return []
+    return [[], false]
   }
 
   const data: ApiResponse<Question> = await fetch(
-    `${BASE_URL}/search/advanced?order=desc&sort=votes&title=${query}&site=stackoverflow`
+    `${BASE_URL}/search/advanced?page=${page}&pagesize=${PAGE_SIZE}&order=desc&sort=${sortBy}&title=${query}&site=stackoverflow`
   ).then(res => res.json())
 
-  return data.items
+  return [data.items, data.has_more] as const
 }
 
 type TFetchDetailsByQuestionId = (questionId: number | string) => Promise<Question>
